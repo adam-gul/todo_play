@@ -22,7 +22,7 @@ class EmployeeController @Inject() (cc: ControllerComponents, employeeService: E
   def list = Action.async { request =>
     employeeService.listAll.map(employees => Ok(FromScala(employees).transform(ToJson.string)))
   }
-
+// TODO update it
   def add = Action(parse.anyContent) { request =>
     val jsonEmployee = request.body.asJson
     jsonEmployee match {
